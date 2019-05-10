@@ -1,21 +1,27 @@
 import AppModel from '../model/AppModel';
-import AppView from '../views/app-view/AppViews';
+import AppView from '../views/app-view/AppView';
 
-const apiKey = 'AIzaSyBomVH6GyIEuV1erFH0snGINHk_jy0DbF0';
-const { body } = document;
+// const { body } = document;
+// const searchBar = document.querySelector('.search-bar');
 
 export default class App {
-  constructor() {
+  constructor(searchBar) {
+    this.apiKey = 'AIzaSyBomVH6GyIEuV1erFH0snGINHk_jy0DbF0';
+    this.searchBar = searchBar;
+    // console.log(this.searchBar);
     this.state = {
-      url: `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&type=video&part=snippet&maxResults=15&q=`,
+      url: `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&type=video&part=snippet&maxResults=15&q=${this.searchBar.value}`,
     };
   }
 
   async start() {
-    const model = new AppModel(this.state);
-    // eslint-disable-next-line no-unused-vars
-    const clipTitles = await model.getClipTitles();
-    const view = new AppView(body);
-    view.render();
+    if (this.searchBar.value) {
+      const model = new AppModel(this.state);
+      console.log(model);
+      // eslint-disable-next-line no-unused-vars
+      const clipInfo = await model.getClipInfo();
+      const view = new AppView();
+      view.render();
+    }
   }
 }

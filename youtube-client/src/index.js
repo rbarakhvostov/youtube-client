@@ -1,4 +1,12 @@
+import renderSearchBar from './views/search-bar-view/search-bar-view';
 import App from './controller/App';
 
-const app = new App();
-app.start();
+renderSearchBar();
+// const app = new App();
+// console.log(app);
+// app.start();
+function start() {
+  new App(this).start();
+}
+const searchBar = document.querySelector('.search-bar');
+searchBar.addEventListener('input', start);
