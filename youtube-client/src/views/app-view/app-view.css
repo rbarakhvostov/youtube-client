@@ -1,5 +1,82 @@
 @import "reset.css";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-   background-color: #bababa70;
+   background-color: #bababa80;
+   font-family: 'Comic Sans MS', cursive;
+}
+
+.clips-wrap {
+  margin-top: 100px;
+  background-color: aqua;
+}
+
+.clip {
+  width: 350px;
+  height: 450px;
+  overflow: hidden;
+}
+.clip-title-wrap {
+  background-color: #a5c5f7;
+  height: 200px;
+  position: relative;
+}
+.clip-title-img {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  position: absolute;
+  background-color: #FFFFFF70;
+  top: 50px;
+  left: 0;
+  color: #000000;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 16px;
+}
+.title:hover {
+  color: #ff0015;
+}
+.clip-info {
+  background-color: #ffffff;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.clip-info-wrap {
+  color: #000000;
+  margin: 30px 0;
+  font-weight: bold;
+  width: 280px;
+}
+.author-wrap, .date-wrap, .view-wrap {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.author-wrap {
+  margin-top: 0;
+}
+.fa-user-alt {
+  font-size: 15px;
+}
+.fa-eye {
+  font-size: 15px;
+}
+.description {
+  color: #000000;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 16px;
 }

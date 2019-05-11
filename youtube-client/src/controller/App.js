@@ -6,7 +6,7 @@ import AppView from '../views/app-view/AppView';
 
 export default class App {
   constructor(searchBar) {
-    this.apiKey = 'AIzaSyBomVH6GyIEuV1erFH0snGINHk_jy0DbF0';
+    this.apiKey = 'AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y';
     this.searchBar = searchBar;
     // console.log(this.searchBar);
     this.state = {
@@ -18,9 +18,8 @@ export default class App {
     if (this.searchBar.value) {
       const model = new AppModel(this.state);
       console.log(model);
-      // eslint-disable-next-line no-unused-vars
       const clipInfo = await model.getClipInfo();
-      const view = new AppView();
+      const view = new AppView(clipInfo);
       view.render();
     }
   }
