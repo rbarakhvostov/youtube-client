@@ -12,7 +12,13 @@ export default class AppView {
   }
 
   render() {
-    document.querySelector('.search-wrap').insertAdjacentHTML('afterEnd',
-      `<ul class='clips-wrap'><li class="clip"><div class="clip-title-wrap"><img class="clip-title-img" src="${this.pictures[0]}" alt="" width="320" height="180"><a class="title" href="https://www.youtube.com/watch?v=${this.clipId[0]}" target="_blank">${this.titles[0]}</a></div><div class="clip-info"><div class="clip-info-wrap"><div class="author-wrap"><span class="fas fa-user-alt"></span><span class="author">${this.authors[0].length <= 15 ? this.authors[0] : `${this.authors[0].slice(0, 15)}...`}</span></div><div class="date-wrap"><span class="fas fa-calendar-alt"></span><span class="date">${this.dates[0].slice(0, 10)}</span></div><div class="view-wrap"><span class="fas fa-eye"></span><span class="view">${this.viewCount[0]}</span></div></div><p class="description">${this.descriptions[0]}</p></div></li></ul>`);
+    if (document.querySelector('.clips-wrap')) {
+      document.body.removeChild(document.querySelector('.clips-wrap'));
+    }
+    document.querySelector('.search-wrap').insertAdjacentHTML('afterEnd', '<ul class="clips-wrap"></ul>');
+    for (let i = 0; i < 15; i += 1) {
+      document.querySelector('.clips-wrap').insertAdjacentHTML('beforeEnd',
+        `<li class="clip"><div class="clip-title-wrap"><img class="clip-title-img" src="${this.pictures[i]}" alt="" width="320" height="180"><a class="title" href="https://www.youtube.com/watch?v=${this.clipId[i]}" target="_blank">${this.titles[i]}</a></div><div class="clip-info"><div class="clip-info-wrap"><div class="author-wrap"><span class="fas fa-user-alt"></span><span class="author">${this.authors[i].length <= 20 ? this.authors[i] : `${this.authors[i].slice(0, 17)}...`}</span></div><div class="date-wrap"><span class="fas fa-calendar-alt"></span><span class="date">${this.dates[i].slice(0, 10)}</span></div><div class="view-wrap"><span class="fas fa-eye"></span><span class="view">${this.viewCount[i]}</span></div></div><p class="description">${this.descriptions[i]}</p></div></li>`);
+    }
   }
 }

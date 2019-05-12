@@ -7,11 +7,15 @@
 body {
    background-color: #bababa80;
    font-family: 'Comic Sans MS', cursive;
+   font-size: 16px;
 }
 
 .clips-wrap {
   margin-top: 100px;
   background-color: aqua;
+  display: flex;
+  width: 6000px;
+  justify-content: space-around;
 }
 
 .clip {
@@ -30,8 +34,8 @@ body {
 }
 .title {
   position: absolute;
-  background-color: #FFFFFF70;
-  top: 50px;
+  background-color: #FFFFFF90;
+  top: 30px;
   left: 0;
   color: #000000;
   font-weight: bold;
@@ -41,10 +45,10 @@ body {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  font-size: 16px;
+  line-height: 24px;
 }
 .title:hover {
-  color: #ff0015;
+  color: #b22036;
 }
 .clip-info {
   background-color: #ffffff;
@@ -55,9 +59,10 @@ body {
 }
 .clip-info-wrap {
   color: #000000;
-  margin: 30px 0;
+  margin: 30px 0 20px 0;
   font-weight: bold;
   width: 280px;
+  font-size: 18px;
 }
 .author-wrap, .date-wrap, .view-wrap {
   margin-top: 20px;
@@ -68,15 +73,14 @@ body {
 .author-wrap {
   margin-top: 0;
 }
-.fa-user-alt {
-  font-size: 15px;
-}
-.fa-eye {
+.fa-user-alt, .fa-eye {
   font-size: 15px;
 }
 .description {
   color: #000000;
   padding: 0 10px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  word-break: break-word;
 }

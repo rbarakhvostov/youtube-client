@@ -8,7 +8,6 @@ export default class App {
   constructor(searchBar) {
     this.apiKey = 'AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y';
     this.searchBar = searchBar;
-    // console.log(this.searchBar);
     this.state = {
       url: `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&type=video&part=snippet&maxResults=15&q=${this.searchBar.value}`,
     };
