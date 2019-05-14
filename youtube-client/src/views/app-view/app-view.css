@@ -11,18 +11,38 @@ body {
 }
 
 .clips-wrap {
-  margin-top: 100px;
+  margin-top: 70px;
   background-color: aqua;
-  display: flex;
-  width: 6000px;
+  /* display: flex;
+  width: 6000px; */
   justify-content: space-around;
-}
+  height: 450px; /**/
 
+  cursor: grab;
+  /* user-select: none; */
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 0 0px;
+  width: 100%;
+
+}
+.clips-wrap.active {
+  cursor: grabbing;
+}
 .clip {
   width: 320px;
   height: 450px;
   overflow: hidden;
   border-radius: 20px;
+
+  display: inline-block;
+  white-space: normal;
+  border: 1px solid #000000;
+  margin-left: calc((100% - 1280px) / 3);
+}
+.clip:first-child {
+  margin-left: 0;
 }
 .clip-title-wrap {
   background-color: #ffffff;
@@ -44,11 +64,13 @@ body {
   font-weight: bold;
   text-align: center;
   width: 100%;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   padding: 10px;
   line-height: 24px;
+
+  word-break: break-word;
 }
 .title:hover {
   color: #b22036;
@@ -83,7 +105,7 @@ body {
   color: #000000;
   padding: 0 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
   word-break: break-word;
 }
