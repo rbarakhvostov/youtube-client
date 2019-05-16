@@ -19,8 +19,9 @@ export default class AppModel {
     clipInfo.authors = data.items.map(el => el.snippet.channelTitle);
     clipInfo.dates = data.items.map(el => el.snippet.publishedAt);
     clipInfo.clipId = data.items.map(el => el.id.videoId);
+    clipInfo.nextPageToken = data.nextPageToken;
     clipInfo.viewCount = await AppModel.getClipViewCount(clipInfo.clipId);
-    console.log(clipInfo);
+    // console.log(clipInfo);
     return clipInfo;
   }
 

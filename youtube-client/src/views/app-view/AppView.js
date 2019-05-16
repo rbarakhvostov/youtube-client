@@ -39,6 +39,7 @@ export default class AppView {
     let walk;
 
     let offset;
+    // let counter = 1;
     const { clientWidth } = document.documentElement;
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
@@ -57,6 +58,7 @@ export default class AppView {
       slider.classList.remove('active');
       if (walk <= -160) {
         slider.scrollLeft = scrollLeft + clientWidth + offset + 0.4;
+        // counter += 1;
       }
       if (walk > -160 && walk < 160 && scrollLeft !== 0) {
         slider.scrollLeft += walk + 0.6;
@@ -65,7 +67,9 @@ export default class AppView {
 
       if (walk >= 160) {
         slider.scrollLeft = scrollLeft - clientWidth - offset + 0.2;
+        // counter -= 1;
       }
+      // console.log(counter);
     });
 
     slider.addEventListener('mousemove', (e) => {
@@ -75,5 +79,12 @@ export default class AppView {
       offset = +(getComputedStyle(slider.children[1]).marginLeft).slice(0, -2);
       slider.scrollLeft = scrollLeft - walk;
     });
+  }
+
+  renderNextPage() {
+    for (let i = 0; i < 15; i += 1) {
+      document.querySelector('.clips-wrap').insertAdjacentHTML('beforeEnd',
+        `<li class="clip"><div class="clip-title-wrap"><img class="clip-title-img" src="${this.pictures[i]}" alt="" width="320" height="180"><a class="title" href="https://www.youtube.com/watch?v=${this.clipId[i]}" target="_blank">${this.titles[i]}</a></div><div class="clip-info"><div class="clip-info-wrap"><div class="author-wrap"><span class="fas fa-user-alt"></span><span class="author">${this.authors[i].length <= 17 ? this.authors[i] : `${this.authors[i].slice(0, 14)}...`}</span></div><div class="date-wrap"><span class="fas fa-calendar-alt"></span><span class="date">${this.dates[i].slice(0, 10)}</span></div><div class="view-wrap"><span class="fas fa-eye"></span><span class="view">${this.viewCount[i]}</span></div></div><p class="description">${this.descriptions[i]}</p></div></li>`);
+    }
   }
 }
