@@ -12,48 +12,63 @@ body {
 
 .clips-wrap {
   margin-top: 70px;
-  background-color: aqua;
+  /* background-color: aqua; */
   /* display: flex;
   width: 6000px; */
   justify-content: space-around;
-  height: 450px; /**/
+  /* height: 450px;  */
 
   cursor: grab;
   /* user-select: none; */
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
-  padding: 0 0px;
+  padding: 10px 0;
   width: 100%;
-
 }
 .clips-wrap.active {
   cursor: grabbing;
 }
 .clip {
   width: 320px;
-  height: 450px;
+  height: 460px;
   overflow: hidden;
   border-radius: 20px;
-
+  background-color: #ffffff;
   display: inline-block;
   white-space: normal;
   border: 1px solid #000000;
   margin-left: calc((100% - 1280px) / 3);
+
+  position: relative;
+
+  transition: 4s;
 }
 .clip:first-child {
   margin-left: 0;
 }
+.clip:hover {
+  /* transition: 1s;
+  transform: scale(1.03); */
+  transition: 2s;
+  background-color: #f4f3ad80;
+}
 .clip-title-wrap {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   height: 200px;
-  position: relative;
-  padding: 10px;
+  /* position: relative; */
+  margin: 15px 10px 0 10px;
 }
 .clip-title-img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  transition: 4s;
+  transform: rotate(-7deg) scale(0.93);
+}
+.clip:hover .clip-title-img {
+  transition: 2s;
+  transform: rotate(0deg);
 }
 .title {
   position: absolute;
@@ -73,10 +88,10 @@ body {
   word-break: break-word;
 }
 .title:hover {
-  color: #b22036;
+  color: #4751e5;
 }
 .clip-info {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   height: 250px;
   display: flex;
   flex-direction: column;

@@ -16,7 +16,7 @@
   font-family: 'Comic Sans MS', cursive;
 }
 .search-bar:focus {
-  border: 2px solid #b22036;
+  border: 2px solid #4751e5;
 }
 .search-bar-label {
   padding-left: 10px;
