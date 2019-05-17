@@ -16,6 +16,8 @@ export default class App {
 
   async start() {
     if (this.searchBar.value) {
+      window.pageCounter = 1;
+      window.loadingClipsPage_4 = 2;
       const model = new AppModel(this.state);
       // console.log(model);
       this.clipInfo = await model.getClipInfo();
@@ -25,23 +27,27 @@ export default class App {
       view.render();
       const slider = document.querySelector('.clips-wrap');
       // console.log(this.clipInfo);
-      slider.addEventListener('contextmenu', this.startNext.bind(this));
+      slider.addEventListener('mouseup', this.startNext.bind(this));
     }
     // console.log(counter);
   }
 
   async startNext() {
-    this.state = {
-      url: `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&type=video&part=snippet&maxResults=15&pageToken=${this.clipInfo.nextPageToken}&q=${this.searchBar.value}`,
-    };
-    const nextModel = new AppModel(this.state);
-    // console.log(nextModel);
-    const nextClipInfo = await nextModel.getClipInfo();
-    // console.log(nextClipInfo.nextPageToken);
-    const nextView = new AppView(nextClipInfo);
-    nextView.renderNextPage();
-    this.clipInfo = nextClipInfo;
-    console.log(this.state);
+    if (window.pageCounter === window.loadingClipsPage_4 /* && window.pageChange */) {
+      this.state = {
+        url: `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&type=video&part=snippet&maxResults=15&pageToken=${this.clipInfo.nextPageToken}&q=${this.searchBar.value}`,
+      };
+      const nextModel = new AppModel(this.state);
+      // console.log(nextModel);
+      const nextClipInfo = await nextModel.getClipInfo();
+      // console.log(nextClipInfo.nextPageToken);
+      const nextView = new AppView(nextClipInfo);
+      nextView.renderNextPage();
+      this.clipInfo = nextClipInfo;
+      // console.log(this.state);
+      // window.pageChange = false;
+      window.loadingClipsPage_4 += 3;
+    }
   }
 }
 // function startNext() {

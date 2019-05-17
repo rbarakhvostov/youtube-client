@@ -1,5 +1,7 @@
 import './app-view.css';
 
+// window.pageCounter = 1;
+// window.loadingClipsPage_4 = 2;
 export default class AppView {
   constructor(clipInfo) {
     this.titles = clipInfo.titles;
@@ -58,7 +60,8 @@ export default class AppView {
       slider.classList.remove('active');
       if (walk <= -160) {
         slider.scrollLeft = scrollLeft + clientWidth + offset + 0.4;
-        // counter += 1;
+        window.pageCounter += 1;
+        // window.pageChange = true;
       }
       if (walk > -160 && walk < 160 && scrollLeft !== 0) {
         slider.scrollLeft += walk + 0.6;
@@ -67,7 +70,9 @@ export default class AppView {
 
       if (walk >= 160) {
         slider.scrollLeft = scrollLeft - clientWidth - offset + 0.2;
-        // counter -= 1;
+        window.pageCounter -= 1;
+        // window.pageChange = false;
+        if (window.pageCounter < 1) window.pageCounter = 1;
       }
       // console.log(counter);
     });
