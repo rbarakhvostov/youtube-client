@@ -23,8 +23,13 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   width: 100%;
+  /* scroll-behavior: smooth; */
+  /* padding: 0 60px;*/
+
+  /* max-width: 1440px;
+  margin: 0 auto; */
 }
 .clips-wrap.active {
   cursor: grabbing;
