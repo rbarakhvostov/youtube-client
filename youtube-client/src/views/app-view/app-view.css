@@ -11,7 +11,7 @@ body {
 }
 
 .clips-wrap {
-  margin-top: 70px;
+  margin-top: 60px;
   /* background-color: aqua; */
   /* display: flex;
   width: 6000px; */
@@ -128,4 +128,27 @@ body {
   font-size: 13px;
   line-height: 20px;
   word-break: break-word;
+}
+
+.buttons-wrap {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin: 60px auto 0;
+}
+
+.button-page {
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #4751e5;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-page:hover {
+  background-color: #4751e550;
 }

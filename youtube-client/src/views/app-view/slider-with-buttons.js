@@ -13,7 +13,8 @@ export default function makeSlider() {
   let scrollLeft;
   let x;
   let walk;
-
+  const nextPage = document.querySelector('.next-page');
+  const prevPage = document.querySelector('.prev-page');
   slider.addEventListener('mousedown', (e) => {
     e.preventDefault();
     isDown = true;
@@ -69,6 +70,19 @@ export default function makeSlider() {
     walk = x - startX;
     // offset = +(getComputedStyle(clip).marginLeft).slice(0, -2);
     slider.scrollLeft = scrollLeft - walk;
+  });
+
+  nextPage.addEventListener('mouseup', () => {
+    ({ scrollLeft } = slider);
+    slider.scrollLeft = scrollLeft + htmlWidth + clipMarginLeft + 0.4;
+    window.pageCounter += 1;
+  });
+
+  prevPage.addEventListener('mouseup', () => {
+    ({ scrollLeft } = slider);
+    slider.scrollLeft = scrollLeft - htmlWidth - clipMarginLeft;
+    window.pageCounter -= 1;
+    if (window.pageCounter < 1) window.pageCounter = 1;
   });
 
   window.addEventListener('resize', () => {

@@ -25,9 +25,11 @@ export default class App {
       // console.log(this.clipInfo.nextPageToken);
       const view = new AppView(this.clipInfo);
       view.render();
-      const slider = document.querySelector('.clips-wrap');
+      // const slider = document.querySelector('.clips-wrap');
+      // const nextPage = document.querySelector('.clips-wrap');
       // console.log(this.clipInfo);
-      slider.addEventListener('mouseup', this.startNext.bind(this));
+      document.querySelector('.clips-wrap').addEventListener('mouseup', this.startNext.bind(this));
+      document.querySelector('.next-page').addEventListener('mouseup', this.startNext.bind(this));
     }
     // console.log(counter);
   }
