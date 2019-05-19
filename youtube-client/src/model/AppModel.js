@@ -4,7 +4,7 @@ export default class AppModel {
   }
 
   static async getClipViewCount(clipId) {
-    const apiKey = 'AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y';
+    const apiKey = 'AIzaSyBomVH6GyIEuV1erFH0snGINHk_jy0DbF0';
     const url = `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&id=${clipId.join(',')}&part=statistics`;
     const responce = await fetch(url);
     const data = await responce.json();
@@ -21,7 +21,6 @@ export default class AppModel {
     clipInfo.clipId = data.items.map(el => el.id.videoId);
     clipInfo.nextPageToken = data.nextPageToken;
     clipInfo.viewCount = await AppModel.getClipViewCount(clipInfo.clipId);
-    // console.log(clipInfo);
     return clipInfo;
   }
 

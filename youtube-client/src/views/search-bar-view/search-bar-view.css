@@ -7,13 +7,13 @@
 .search-bar {
   width: 600px;
   height: 40px;
-  border-radius: 10px;
-  outline: none;
   padding-left: 10px;
   font-weight: bold;
   font-size: 18px;
+  font-family: "Comic Sans MS", cursive;
   border: 2px solid #000000;
-  font-family: 'Comic Sans MS', cursive;
+  border-radius: 10px;
+  outline: none;
 }
 .search-bar:focus {
   border: 2px solid #4751e5;
@@ -23,8 +23,8 @@
   cursor: pointer;
 }
 .fa-search {
-  height: 40px;
   display: flex;
   align-items: center;
+  height: 40px;
   font-size: 20px;
 }

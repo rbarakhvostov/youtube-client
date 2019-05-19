@@ -1,8 +1,7 @@
 export default function makeSlider() {
-  document.addEventListener('mousemove', (e) => {
-    e.preventDefault();
+  document.addEventListener('mousedown', (e) => {
+    if (e.target.tagName !== 'INPUT') e.preventDefault();
   });
-
   const slider = document.querySelector('.clips-wrap');
   const clip = document.querySelector('.clip:not(:first-child)');
   const clipWidth = +(getComputedStyle(clip).width).slice(0, -2);
@@ -19,11 +18,11 @@ export default function makeSlider() {
   currPage.textContent = 1;
   const prevTooltip = document.querySelector('.tooltip-prev');
   const nextTooltip = document.querySelector('.tooltip-next');
+
   slider.addEventListener('mousedown', (e) => {
-    e.preventDefault();
     isDown = true;
     slider.classList.add('active');
-    startX = e.pageX; // - slider.offsetLeft;
+    startX = e.pageX;
     ({ scrollLeft } = slider);
   });
 
@@ -74,9 +73,8 @@ export default function makeSlider() {
 
   slider.addEventListener('mousemove', (e) => {
     if (!isDown) return;
-    x = e.pageX; // - slider.offsetLeft;
+    x = e.pageX;
     walk = x - startX;
-    // offset = +(getComputedStyle(clip).marginLeft).slice(0, -2);
     slider.scrollLeft = scrollLeft - walk;
   });
 
@@ -92,9 +90,11 @@ export default function makeSlider() {
     nextTooltip.textContent = +currPage.textContent + 1;
     nextTooltip.style.opacity = 1;
   });
+
   nextPage.addEventListener('mouseleave', () => {
     nextTooltip.style.opacity = 0;
   });
+
   prevPage.addEventListener('mouseup', () => {
     ({ scrollLeft } = slider);
     slider.scrollLeft = scrollLeft - htmlWidth - clipMarginLeft;
@@ -110,11 +110,17 @@ export default function makeSlider() {
       prevTooltip.style.opacity = 1;
     }
   });
+
   prevPage.addEventListener('mouseleave', () => {
     prevTooltip.style.opacity = 0;
   });
+
   window.addEventListener('resize', () => {
     htmlWidth = +(getComputedStyle(document.documentElement).width).slice(0, -2);
     clipMarginLeft = +(getComputedStyle(clip).marginLeft).slice(0, -2);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    e.preventDefault();
   });
 }
