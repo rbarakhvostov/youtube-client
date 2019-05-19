@@ -15,6 +15,8 @@ export default function makeSlider() {
   let walk;
   const nextPage = document.querySelector('.next-page');
   const prevPage = document.querySelector('.prev-page');
+  const currPage = document.querySelector('.current-page');
+  currPage.textContent = 1;
   slider.addEventListener('mousedown', (e) => {
     e.preventDefault();
     isDown = true;
@@ -29,6 +31,7 @@ export default function makeSlider() {
       if (walk <= -clipWidth) {
         slider.scrollLeft = scrollLeft + htmlWidth + clipMarginLeft + 0.4;
         window.pageCounter += 1;
+        currPage.textContent = window.pageCounter;
       }
       if (walk > -clipWidth && walk < clipWidth && scrollLeft !== 0) {
         slider.scrollLeft += walk + 0.6;
@@ -39,6 +42,7 @@ export default function makeSlider() {
         slider.scrollLeft = scrollLeft - htmlWidth - clipMarginLeft;
         window.pageCounter -= 1;
         if (window.pageCounter < 1) window.pageCounter = 1;
+        currPage.textContent = window.pageCounter;
       }
     }
     isDown = false;
@@ -50,6 +54,7 @@ export default function makeSlider() {
     if (walk <= -clipWidth) {
       slider.scrollLeft = scrollLeft + htmlWidth + clipMarginLeft + 0.4;
       window.pageCounter += 1;
+      currPage.textContent = window.pageCounter;
     }
     if (walk > -clipWidth && walk < clipWidth && scrollLeft !== 0) {
       slider.scrollLeft += walk + 0.6;
@@ -60,6 +65,7 @@ export default function makeSlider() {
       slider.scrollLeft = scrollLeft - htmlWidth - clipMarginLeft;
       window.pageCounter -= 1;
       if (window.pageCounter < 1) window.pageCounter = 1;
+      currPage.textContent = window.pageCounter;
     }
     walk = 0;
   });
@@ -76,6 +82,7 @@ export default function makeSlider() {
     ({ scrollLeft } = slider);
     slider.scrollLeft = scrollLeft + htmlWidth + clipMarginLeft + 0.4;
     window.pageCounter += 1;
+    currPage.textContent = window.pageCounter;
   });
 
   prevPage.addEventListener('mouseup', () => {
@@ -83,10 +90,15 @@ export default function makeSlider() {
     slider.scrollLeft = scrollLeft - htmlWidth - clipMarginLeft;
     window.pageCounter -= 1;
     if (window.pageCounter < 1) window.pageCounter = 1;
+    currPage.textContent = window.pageCounter;
   });
 
   window.addEventListener('resize', () => {
     htmlWidth = +(getComputedStyle(document.documentElement).width).slice(0, -2);
     clipMarginLeft = +(getComputedStyle(clip).marginLeft).slice(0, -2);
   });
+
+  // document.addEventListener('mouseover', () => {
+  //   currPage.textContent = window.pageCounter;
+  // });
 }

@@ -152,3 +152,12 @@ body {
 .button-page:hover {
   background-color: #4751e550;
 }
+
+.current-page {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
