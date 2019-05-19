@@ -17,6 +17,8 @@ export default function makeSlider() {
   const prevPage = document.querySelector('.prev-page');
   const currPage = document.querySelector('.current-page');
   currPage.textContent = 1;
+  const prevTooltip = document.querySelector('.tooltip-prev');
+  const nextTooltip = document.querySelector('.tooltip-next');
   slider.addEventListener('mousedown', (e) => {
     e.preventDefault();
     isDown = true;
@@ -83,22 +85,36 @@ export default function makeSlider() {
     slider.scrollLeft = scrollLeft + htmlWidth + clipMarginLeft + 0.4;
     window.pageCounter += 1;
     currPage.textContent = window.pageCounter;
+    nextTooltip.style.opacity = 0;
   });
 
+  nextPage.addEventListener('mousedown', () => {
+    nextTooltip.textContent = +currPage.textContent + 1;
+    nextTooltip.style.opacity = 1;
+  });
+  nextPage.addEventListener('mouseleave', () => {
+    nextTooltip.style.opacity = 0;
+  });
   prevPage.addEventListener('mouseup', () => {
     ({ scrollLeft } = slider);
     slider.scrollLeft = scrollLeft - htmlWidth - clipMarginLeft;
     window.pageCounter -= 1;
     if (window.pageCounter < 1) window.pageCounter = 1;
     currPage.textContent = window.pageCounter;
+    prevTooltip.style.opacity = 0;
   });
 
+  prevPage.addEventListener('mousedown', () => {
+    if (currPage.textContent !== '1') {
+      prevTooltip.textContent = currPage.textContent - 1;
+      prevTooltip.style.opacity = 1;
+    }
+  });
+  prevPage.addEventListener('mouseleave', () => {
+    prevTooltip.style.opacity = 0;
+  });
   window.addEventListener('resize', () => {
     htmlWidth = +(getComputedStyle(document.documentElement).width).slice(0, -2);
     clipMarginLeft = +(getComputedStyle(clip).marginLeft).slice(0, -2);
   });
-
-  // document.addEventListener('mouseover', () => {
-  //   currPage.textContent = window.pageCounter;
-  // });
 }

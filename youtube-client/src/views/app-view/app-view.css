@@ -135,6 +135,8 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 60px auto 0;
+
+  position: relative;
 }
 
 .button-page {
@@ -160,4 +162,25 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 22px;
+}
+
+.tooltip {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+  color: #4751e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+.tooltip-prev {
+  top: -30px;
+  left: 0px;
+}
+
+.tooltip-next {
+  top: -30px;
+  left: 70px;
 }
