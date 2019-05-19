@@ -1,7 +1,4 @@
 export default function makeSlider() {
-  document.addEventListener('mousedown', (e) => {
-    if (e.target.tagName !== 'INPUT') e.preventDefault();
-  });
   const slider = document.querySelector('.clips-wrap');
   const clip = document.querySelector('.clip:not(:first-child)');
   const clipWidth = +(getComputedStyle(clip).width).slice(0, -2);
@@ -20,6 +17,7 @@ export default function makeSlider() {
   const nextTooltip = document.querySelector('.tooltip-next');
 
   slider.addEventListener('mousedown', (e) => {
+    e.preventDefault();
     isDown = true;
     slider.classList.add('active');
     startX = e.pageX;

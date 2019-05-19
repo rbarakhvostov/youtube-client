@@ -31,7 +31,7 @@ export default class App {
       const model = new AppModel(this.state);
       this.clipInfo = await model.getClipInfo();
       const view = new AppView(this.clipInfo);
-      view.renderNextPage();
+      view.renderNextChunk();
       window.loadingClipsPage_4 += 3;
     }
   }
