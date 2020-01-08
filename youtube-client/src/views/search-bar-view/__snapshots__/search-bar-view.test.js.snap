@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renderSearchBar Should be render correctly 1`] = `"<div class=\\"search-wrap\\"><input class=\\"search-bar\\" id=\\"search-bar\\" type=\\"text\\" placeholder=\\"search\\"><label class=\\"search-bar-label\\" for=\\"search-bar\\"><span class=\\"fas fa-search\\"></span></label></div>"`;
+exports[`renderSearchBar Should be render correctly 1`] = `
+"<div class=\\"search-wrap\\">
+      <input class=\\"search-bar\\" id=\\"search-bar\\" type=\\"text\\" placeholder=\\"search\\">
+      <label class=\\"search-bar-label\\" for=\\"search-bar\\">
+        <span class=\\"fas fa-search\\"></span>
+      </label>
+    </div>"
+`;

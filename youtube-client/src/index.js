@@ -4,7 +4,6 @@ import App from './controller/App';
 renderSearchBar();
 
 function start() {
-  console.log(this);
   new App(this).start();
 }
 
