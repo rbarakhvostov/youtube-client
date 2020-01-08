@@ -1,0 +1,30 @@
+.search-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.search-bar {
+  width: 600px;
+  height: 40px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Comic Sans MS", cursive;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  outline: none;
+}
+.search-bar:focus {
+  border: 2px solid #4751e5;
+}
+.search-bar-label {
+  padding-left: 10px;
+  cursor: pointer;
+}
+.fa-search {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 20px;
+}

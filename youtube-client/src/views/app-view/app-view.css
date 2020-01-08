@@ -1,0 +1,157 @@
+@import "reset.css";
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+  font-family: "Comic Sans MS", cursive;
+  color: #000000;
+  background-color: #bababa80;
+}
+.clips-wrap {
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 60px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  cursor: grab;
+  /* scroll-behavior: smooth; // doesn`t work well in chrome*/
+}
+.clips-wrap.active {
+  cursor: grabbing;
+}
+.clip {
+  position: relative;
+  display: inline-block;
+  width: 320px;
+  height: 460px;
+  margin-left: calc((100% - 1280px) / 3);
+  overflow: hidden;
+  white-space: normal;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  transition: 4s;
+}
+.clip:first-child {
+  margin-left: 0;
+}
+.clip:hover {
+  background-color: #f4f3ad80;
+  transition: 2s;
+}
+.clip-title-wrap {
+  height: 200px;
+  margin: 15px 10px 0 10px;
+}
+.clip-title-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform: rotate(-7deg) scale(0.93);
+  transition: 4s;
+}
+.clip:hover .clip-title-img {
+  transform: rotate(0deg);
+  transition: 2s;
+}
+.title {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  word-break: break-word;
+  background-color: #ffffff90;
+}
+.title:hover {
+  color: #4751e5;
+}
+.clip-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+}
+.clip-info-wrap {
+  width: 280px;
+  margin: 30px 0 20px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+.author-wrap,
+.date-wrap,
+.view-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.author-wrap {
+  margin-top: 0;
+}
+.fa-user-alt,
+.fa-eye {
+  font-size: 15px;
+}
+.description {
+  padding: 0 10px;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  word-break: break-word;
+}
+.buttons-wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin: 60px auto 0;
+}
+.button-page {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  background-color: #4751e5;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.button-page:hover {
+  background-color: #4751e550;
+}
+.current-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+}
+.tooltip {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+  color: #4751e5;
+  opacity: 0;
+}
+.tooltip-prev {
+  top: -30px;
+  left: 0;
+}
+.tooltip-next {
+  top: -30px;
+  left: 70px;
+}
