@@ -1,3 +1,5 @@
+import './search-bar-view.css';
+
 export default function renderSearchBar() {
   const { body } = document;
   body.insertAdjacentHTML('afterBegin',

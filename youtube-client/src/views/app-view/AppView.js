@@ -1,5 +1,7 @@
 import makeSlider from './slider-with-buttons';
 
+import './app-view.css';
+
 export default class AppView {
   constructor(clipInfo) {
     this.titles = clipInfo.titles;
