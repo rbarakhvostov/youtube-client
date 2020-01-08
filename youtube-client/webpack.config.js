@@ -28,4 +28,8 @@ module.exports = {
     template: 'public/index.html',
     favicon: 'public/favicon.png',
   })],
+  devServer: {
+    port: 9000,
+    open: true,
+  },
 };
