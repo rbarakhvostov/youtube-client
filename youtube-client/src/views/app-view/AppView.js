@@ -1,4 +1,4 @@
-import makeSlider from './slider-with-buttons';
+import makeSlider from '../../utils/slider-with-buttons';
 
 import './app-view.css';
 

@@ -3,11 +3,14 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "chrome": "72"
-        }
+        "modules": false
       }
     ]
   ],
-  "plugins": []
+  "plugins": [],
+  "env": {
+    "test": {
+      "presets": ["@babel/preset-env"]
+    }
+  }
 }
