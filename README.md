@@ -4,4 +4,4 @@
 
 [https://rbarakhvostov-youtube-client.netlify.com/](https://rbarakhvostov-youtube-client.netlify.com/)
 
-![Application](./youtube-client/public/app.JPG)
+![Application](./youtube-client/public/youtube-client.JPG)
