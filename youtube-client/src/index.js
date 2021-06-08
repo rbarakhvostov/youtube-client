@@ -1,3 +1,4 @@
+import debounce from 'lodash/debounce';
 import renderSearchBar from './views/search-bar-view/search-bar-view';
 import App from './controller/App';
 
@@ -8,4 +9,4 @@ function start() {
 }
 
 const searchBar = document.querySelector('.search-bar');
-searchBar.addEventListener('input', start);
+searchBar.addEventListener('input', debounce(start, 200));

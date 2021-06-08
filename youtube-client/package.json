@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
     "dev": "webpack-dev-server --mode development --watch",
     "build": "webpack --mode production",
     "test": "jest",
@@ -42,5 +43,8 @@
     "last 3 chrome version",
     "last 3 firefox version",
     "last 3 safari version"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
